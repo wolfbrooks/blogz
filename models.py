@@ -6,7 +6,8 @@ class User(db.Model):
     email = db.StringProperty()
 
 class Post(db.Model):
+    author = db.ReferenceProperty(User, required = True)
     title = db.StringProperty(required = True)
     body = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
-    # TODO - we need an author field here; it should be required
+    # TODO - DONE we need an author field here; it should be required
